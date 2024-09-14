@@ -1,0 +1,88 @@
+body {
+  background-color: black;
+}
+
+.header-nav {
+  margin: 5px;
+  padding: 10px;
+  background-color: rgba(165, 42, 42, 0.11);
+}
+
+.header {
+  text-align: center;
+  text-decoration-style: solid;
+  text-transform: capitalize;
+  font-size: 0.75cm;
+  color: green;
+  text-decoration: solid;
+  font-weight: bold;
+}
+
+a {
+  margin: 10px;
+  text-decoration-style: solid;
+  color: whitesmoke;
+  text-decoration: none;
+}
+a:hover {
+  background-color: green;
+  padding: 10px;
+}
+section h3#heading {
+  color: green;
+}
+.description {
+  color: white;
+  font-size: medium;
+}
+.jobathon,
+.random,
+.underline,
+.course {
+  color: white;
+  font-size: medium;
+}
+
+.img {
+  /* Displays an element as a block element (like <p>). 
+  It starts on a new line, and takes up the whole width */
+  display: block;
+  block-size: 100px;
+  background-color: green;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.content {
+  display: flex;
+}
+
+.section {
+  width: 67%;
+}
+
+.aside {
+  margin-left: 10px;
+  width: 33%;
+}
+
+.whatsnew,
+.quicklinks {
+  color: green;
+  font-size: medium;
+}
+
+@media (max-width: 700px) {
+  .content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  .section {
+    width: 100%;
+  }
+
+  .aside {
+    width: 100%;
+  }
+}

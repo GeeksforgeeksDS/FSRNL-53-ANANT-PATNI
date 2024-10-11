@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Basic Example to Describe JavaScript</title>
+  </head>
+
+  <body>
+    <script>
+      // Synchronous
+
+      // JavaScript by default is SYNCHRONOUS in nature.
+      console.log("line1"); // takes 5mins to execute -> user would see blank or white screen till 5 mins and keep waiting
+      console.log("line2");
+
+      // function printHello() {
+      //   console.log("print hello");
+      // }
+      // printHello();
+
+      setTimeout(() => {
+        console.log("print hello");
+      }, 0);
+
+      //Asynchronous
+      console.log("Line 25");
+
+      // setTimeout(function () {
+      //   console.log("Inside setTimeout");
+      // }, 0);
+
+      // console.log("Bye");
+    </script>
+  </body>
+</html>

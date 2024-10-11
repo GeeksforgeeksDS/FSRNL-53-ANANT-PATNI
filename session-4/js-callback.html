@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Callbacks</title>
+  </head>
+  <body>
+    <script>
+      // const message = function () {
+      //   console.log("This message is shown after 3 seconds");
+      // };
+
+      // setTimeout(message, 3000);
+
+      // console.log("Program Starts");
+      // setTimeout(() => {
+      //   console.log("Reading an user from database...");
+      // }, 0);
+      // console.log("Program Ends");
+
+      function getUser(id, callback) {
+        console.log("Reading a user from database...");
+        setTimeout(() => {
+          callback({ id: id, githubUsername: "geekanant" });
+        }, 5000);
+      }
+
+      // We are passing function as an argument to getUser function
+      // getUser(1, (user) => {
+      //   console.log("User", user);
+      // });
+
+      function getRepositories(username, callback) {
+        console.log("Reading repos from database...");
+
+        setTimeout(() => {
+          callback(["mern-gurgaon-2"]);
+        }, 2000);
+      }
+
+      // getRepositories("geekanant", (repos) => {
+      //   console.log("Repos", repos);
+      // });
+
+      function getCommits(repos, callback) {
+        console.log("Reading commits from repo...");
+
+        setTimeout(() => {
+          callback(["commit1", "commit2"]);
+        }, 2000);
+      }
+
+      // getCommits("mern-gurgaon-2", (repos) => {
+      //   console.log("Commits", repos);
+      // });
+
+      // // function getCommits(repo, callback) {
+      // //   console.log("Reading commits from repo...", repo);
+
+      // //   setTimeout(() => {
+      // //     callback({ repo: repo, commits: ["commit1", "commit2"] });
+      // //   }, 2000);
+      // // }
+
+      getUser(1, (user) => {
+        console.log("User", user);
+        getRepositories(user.githubUsername, (repos) => {
+          console.log(repos);
+          getCommits(repos[0], (commits) => {
+            console.log(commits);
+            // Callback Hell ("-_-)
+          });
+        });
+      });
+      // console.log(x);
+    </script>
+  </body>
+</html>

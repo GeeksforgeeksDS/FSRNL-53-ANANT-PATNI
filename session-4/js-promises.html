@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Promises</title>
+  </head>
+  <body>
+    <script>
+      // const promise = new Promise(function (resolve, reject) {
+      //   // the function is executed automatically when the promise is constructed
+
+      //   // after 1 second signal that the job is done with the result "done"
+
+      //   setTimeout(() => resolve("reject"), 1000);
+      // });
+
+      // promise
+      //   .then((result) => {
+      //     console.log("inside .then");
+      //     console.log(result);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+
+      function getUser(id) {
+        return new Promise((resolve, reject) => {
+          console.log("Reading from a database....");
+
+          setTimeout(() => {
+            resolve({ id: id, githubUsername: "geekanant" });
+          }, 2000);
+        });
+      }
+
+      function getRepositories(username) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log(`Extracting Repositories for ${username}....`);
+            resolve(["repo1", "repo2", "repo3"]);
+            // reject(new Error("Error occurred in repositories"));
+          }, 2000);
+        });
+      }
+
+      function getCommits(repo) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("Extracting Commits for " + repo + "....");
+            resolve(["commits"]);
+          }, 2000);
+        });
+      }
+      // promise chaining
+      // getUser(1)
+      //   .then((user) => getRepositories(user.githubUsername))
+      //   .then((repos) => getCommits(repos[0]))
+      //   .then((commits) => console.log("Commits", commits))
+      //   .catch((err) => console.log("Error: ", err.message));
+
+      // // // Async- await approach
+      async function displayCommits() {
+        try {
+          const user = await getUser(1);
+          const repos = await getRepositories(user.githubUsername);
+          const commits = await getCommits(repos[0]);
+        } catch (err) {
+          console.log("Error: ", err.message);
+        }
+      }
+
+      displayCommits();
+    </script>
+  </body>
+</html>
